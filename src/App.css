@@ -1,5 +1,13 @@
-.App {
-  text-align: center;
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+ul li{
+  list-style: none;
 }
 
 .App-logo {
