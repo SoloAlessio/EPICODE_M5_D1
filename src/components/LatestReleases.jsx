@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Col, Container, Row, Form } from "react-bootstrap";
-import fantasy from '../Books/fantasy.json'
+import { Col, Row, Form } from "react-bootstrap";
+import fantasy from '../Books/history.json'
 import SingleBook from "./SingleBook";
+
+let i = 0
 
 const MyFunction = () => {
     const [searchQuery, setSearchQuery] = useState('')
@@ -14,7 +16,7 @@ const MyFunction = () => {
                     <Form.Group>
                         <Form.Control
                             type="search"
-                            placeholder="Search"
+                            placeholder="Cerca un Libro..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
@@ -23,7 +25,9 @@ const MyFunction = () => {
             </Row>
             <Row className="g-2 mt-3">
                 {fantasy
-                    .filter((b) => b.title.toLowerCase().includes(searchQuery))
+                    .slice(0,12)
+                    .filter((b) => b.title.toLowerCase()
+                    .includes(searchQuery))
                     .map((books) => (
                         <Col
                             xs={12}
@@ -33,7 +37,7 @@ const MyFunction = () => {
                             className="mb-4"
                             key={books.asin}
                         >
-                            <SingleBook  book={books}/>
+                            <SingleBook book={books} />
                         </Col>
                     ))}
             </Row>

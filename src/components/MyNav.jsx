@@ -4,7 +4,7 @@ import logo from '../logo.svg'
 const MyNav = () => (
     <Navbar 
         expand="lg" 
-        bg="dark"
+        bg="light"
     >
         <Container fluid>
             <Navbar.Brand href="#">
@@ -19,9 +19,9 @@ const MyNav = () => (
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
-                    <Nav.Link href="#" className='text-white'>Home</Nav.Link>
-                    <Nav.Link href="#" className='text-white'>About</Nav.Link>
-                    <Nav.Link href="#" className='text-white'>Browse</Nav.Link>
+                    <Nav.Link href="#">Home</Nav.Link>
+                    <Nav.Link href="#">About</Nav.Link>
+                    <Nav.Link href="#">Browse</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Container>

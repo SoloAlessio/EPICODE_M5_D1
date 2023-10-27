@@ -10,6 +10,19 @@ ul li{
   list-style: none;
 }
 
+.TextCut{
+    white-space: nowrap; /* Impedisce a testo di andare a capo */
+    overflow: hidden; /* Nasconde il testo in eccesso */
+    text-overflow: ellipsis; /* Aggiunge i tre puntini (...) quando il testo è troncato */
+    max-width: 100%; /* Assicura che il testo non superi la larghezza massima del contenitore */
+    -webkit-line-clamp: 2;
+}
+
+#Book{
+  transition: border .3s ease;
+  cursor: pointer;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

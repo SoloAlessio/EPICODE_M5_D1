@@ -1,7 +1,7 @@
 import { Jumbotron, Button } from 'react-bootstrap'
 
 const Welcome = () => (
-    <Jumbotron className='bg-white'>
+    <Jumbotron className='bg-white px-0'>
         <h1>La Mia Prima Applicazione React</h1>
         <p className="lead">
             Questo è un jumbotron, un elemento di grande evidenza che viene spesso utilizzato per presentare un'offerta o un messaggio importante.
