@@ -1,24 +1,26 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-body{
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-ul li{
+ul li {
   list-style: none;
 }
 
-.TextCut{
-    white-space: nowrap; /* Impedisce a testo di andare a capo */
-    overflow: hidden; /* Nasconde il testo in eccesso */
-    text-overflow: ellipsis; /* Aggiunge i tre puntini (...) quando il testo è troncato */
-    max-width: 100%; /* Assicura che il testo non superi la larghezza massima del contenitore */
-    -webkit-line-clamp: 2;
+.TextCut {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  height: 2.5em;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-#Book{
+#Book {
   transition: border .3s ease;
   cursor: pointer;
 }
@@ -53,6 +55,7 @@ ul li{
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
