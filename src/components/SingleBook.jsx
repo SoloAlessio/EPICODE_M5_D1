@@ -7,7 +7,7 @@ const SingleBook = ({book}) => {
     return (
         <Card
             onClick={() => setSelected(!selected)}
-            style={{border: selected ? '2px solid #22bb3350' : '2px solid #f6f6f7', height: "100%", borderRadius: "24px"}}
+            style={{border: selected ? '2px solid #bb212450' : '2px solid #f6f6f7', height: "100%", borderRadius: "24px"}}
             bg="light"
             className="p-3"
             id="Book"
