@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Col, Row, Form } from "react-bootstrap";
-import fantasy from '../Books/history.json'
+import fantasy from '../Books/scifi.json'
 import SingleBook from "./SingleBook";
-
-let i = 0
 
 const MyFunction = () => {
     const [searchQuery, setSearchQuery] = useState('')
@@ -25,6 +23,7 @@ const MyFunction = () => {
             </Row>
             <Row className="g-2 mt-3">
                 {fantasy
+                    .slice(0,12)
                     .filter((b) => b.title.toLowerCase()
                     .includes(searchQuery))
                     .map((books) => (

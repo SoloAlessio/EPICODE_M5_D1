@@ -20,9 +20,46 @@ ul li {
   -webkit-box-orient: vertical;
 }
 
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 15rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #d3d3d3;
+  border-radius: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  /* Centers thumb on the track */
+
+  /*custom styles*/
+  background-color: #ffff;
+  box-shadow: 0 0 8px rgba(25,25,25,.25);
+  height: .75rem;
+  width: .75rem;
+  border-radius: 50%;
+}
+
 #Book {
   transition: border .3s ease;
   cursor: pointer;
+  height: 100%;
 }
 
 .App-logo {
