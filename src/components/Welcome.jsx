@@ -13,7 +13,8 @@ const Welcome = () => (
                 <div className="lc-block position-relative">
                     <img
                         className="img-fluid"
-                        src="https://www.rlogical.com/wp-content/uploads/2020/07/react-js-developer.png" 
+                        alt='react illustration'
+                        src="https://www.rlogical.com/wp-content/uploads/2020/07/react-js-developer.png"
                     />
                 </div>
             </Col>
@@ -35,28 +36,28 @@ const Welcome = () => (
                     </div>
                 </div>
                 <div className="lc-block">
-                    <Button 
-                        href='https://www.react.dev' 
+                    <Button
+                        href='https://www.react.dev'
                         className='mr-3 px-3 border-0 d-inline-flex align-items-center'
-                        style={{backgroundColor:'#f8f9fa', borderRadius: "12px", height: "60px"}}
+                        style={{ backgroundColor: '#f8f9fa', borderRadius: "12px", height: "60px" }}
                     >
-                        <img 
-                            src={ReactLogo} 
-                            alt="react logo" 
-                            width={"32px"} 
+                        <img
+                            src={ReactLogo}
+                            alt="react logo"
+                            width={"32px"}
                             height={"32px"}
                         />
                     </Button>
 
-                    <Button 
-                        href='https://github.com/SoloAlessio/EPICODE_M5_D2' 
+                    <Button
+                        href='https://github.com/SoloAlessio/EPICODE_M5_D2'
                         className='mr-3 px-3 border-0 d-inline-flex align-items-center'
-                        style={{backgroundColor:'#f8f9fa', borderRadius: "12px", height: "60px"}}
+                        style={{ backgroundColor: '#f8f9fa', borderRadius: "12px", height: "60px" }}
                     >
-                        <img 
-                            src={GithubLogo} 
-                            alt="github logo" 
-                            width={"32px"} 
+                        <img
+                            src={GithubLogo}
+                            alt="github logo"
+                            width={"32px"}
                             height={"32px"}
                         />
                     </Button>
