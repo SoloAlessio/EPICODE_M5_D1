@@ -36,7 +36,7 @@ const Fetch = ({ asin }) => {
 
     return (
         <Card className="Reviews p-3 mt-3" bg="light">
-            <h5 className="mb-0">Recensioni</h5>
+            <h5 className="mb-0">Recensioni: {comments.length}</h5>
             <hr />
             <CommentList List={comments} />
             <hr />

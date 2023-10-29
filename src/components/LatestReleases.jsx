@@ -23,7 +23,6 @@ const MyFunction = () => {
             </Row>
             <Row className="g-2 mt-3">
                 {fantasy
-                    .slice(0,12)
                     .filter((b) => b.title.toLowerCase()
                     .includes(searchQuery))
                     .map((books) => (

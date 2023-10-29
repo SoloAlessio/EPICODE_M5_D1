@@ -26,7 +26,7 @@ const SingleBook = ({ book }) => {
             >
                 <Card.Img
                     src={book.img}
-                    style={{ height: "70%", objectFit: "cover", borderRadius: "8px" }}
+                    style={{ height: "70%", objectFit: "fill", borderRadius: "8px" }}
                     className="shadow"
                 />
                 <Card.Body className="px-0 d-flex flex-column justify-content-between">

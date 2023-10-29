@@ -2,62 +2,108 @@ import * as Icon from 'react-bootstrap-icons'
 import { Row, Col, Container } from 'react-bootstrap'
 
 const MyFooter = () => (
-    <Container fluid>
-        <footer className="bg-body-tertiary py-3 mt-5">
-                <Row>
-                    <Col md={4}>
-                        <h3 className="footer-title">About Us</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                            pellentesque nisi sed lacus lacinia, eget tristique lacus
-                            consectetur.
-                        </p>
-                    </Col>
-                    <Col md={4}>
-                        <h3 className="footer-title">Contact Us</h3>
-                        <ul className="footer-contact pl-0">
-                            <li>
-                                <a href="#">
-                                    <Icon.Map className='mr-3' />
-                                    123 Main Street, Anytown, CA 12345
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <Icon.Phone className='mr-3' />
-                                    (123) 456-7890
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <Icon.Envelope className='mr-3' />
-                                    info@example.com
-                                </a>
-                            </li>
-                        </ul>
-                    </Col>
-                    <Col md={4}>
-                        <h3 className="footer-title">Follow Us</h3>
-                        <div className="footer-social d-flex">
-                            <a href="#" className='mr-3'>
-                                <Icon.Twitter />
-                            </a>
-
-                            <a href="#" className='mr-3'>
-                                <Icon.Instagram />
-                            </a>
-
-                            <a href="#" className='mr-3'>
-                                <Icon.Facebook />
-                            </a>
+    <section className="bg-light text-dark">
+        <Container className="py-5">
+            <Row>
+                <Col lg={3} className='mb-4 mb-md-0'>
+                    <div className="lc-block mb-4">
+                        <img className="img-fluid" alt="logo" src="https://cdn.livecanvas.com/media/svg/undraw-sample/undraw_connected_world_wuay.svg" style={{ maxHeight: "10vh" }} />
+                    </div>
+                    <div className="lc-block small">
+                        <div editable="rich">
+                            <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper matti pibus leo.</p>
                         </div>
-                    </Col>
-                </Row>
-                <div className="footer-copyright">
-                    <p style={{ fontSize: "12px" }}>Copyright &copy; 2023 Example Company. All rights reserved.</p>
-                </div>
-        </footer>
-    </Container>
+                    </div>
+                    <div className="lc-block py-2">
+                        <a className="text-decoration-none mr-3" href="#">
+                            <Icon.Facebook width={"1rem"} height={"1rem"} fill='#343a40'/>
+                        </a>
+                        <a className="text-decoration-none mr-3" href="#">
+                            <Icon.Instagram width={"1rem"} height={"1rem"} fill='#343a40'/>
+                        </a>
+                        <a className="text-decoration-none mr-3" href="#">
+                            <Icon.Twitter width={"1rem"} height={"1rem"} fill='#343a40'/> 
+                        </a>
+                        <a className="text-decoration-none mr-3" href="#">
+                            <Icon.Youtube width={"1rem"} height={"1rem"} fill='#343a40'/>
+                        </a>
+                        <a className="text-decoration-none mr-3" href="#">
+                            <Icon.Linkedin width={"1rem"} height={"1rem"} fill='#343a40'/>
+                        </a>
+                    </div>
+
+                </Col>
+                <Col lg={2} className="offset-lg-1">
+                    <div className="lc-block mb-4">
+                        <div editable="rich">
+                            <h4>Get Started</h4>
+                        </div>
+                    </div>
+                    <div className="lc-block small">
+                        <div editable="rich">
+                            <p>Tutorial</p>
+                            <p>Resources
+                                <br />
+                            </p>
+                            <p>Docs</p>
+                            <p>Example</p>
+                        </div>
+                    </div>
+                </Col>
+                <Col lg={2} className="offset-lg-1">
+                    <div className="lc-block mb-4">
+                        <div editable="rich">
+                            <h4>About us</h4>
+                        </div>
+                    </div>
+                    <div className="lc-block small">
+                        <div editable="rich">
+                            <p>Story</p>
+                            <p>Work with us</p>
+                            <p>Blog</p>
+                            <p>News</p>
+                        </div>
+                    </div>
+                </Col>
+                <Col lg={2} className="offset-lg-1">
+                    <div className="lc-block mb-4">
+                        <div editable="rich">
+                            <h4>Downloads</h4>
+                        </div>
+                    </div>
+                    <div className="lc-block small">
+                        <div editable="rich">
+                            <p>Vertex 1.2</p>
+                            <p>Templates</p>
+                            <p>Sounds</p>
+                            <p>Gradients</p>
+                        </div>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+        <Container className="py-5">
+            <Row>
+                <Col sm={6} className="small">
+                    <div className="lc-block">
+                        <div editable="rich">
+                            <p>Copyright © My Company 2020</p>
+                        </div>
+                    </div>
+                </Col>
+                <Col sm={6} className="text-end small">
+                    <div className="lc-block">
+                        <div editable="rich">
+                            <p>
+                                <a className="text-decoration-none mr-2" href="#">License Details</a> -
+                                <a className="text-decoration-none ml-2" href="#">Terms &amp; Conditions</a>
+                            </p>
+                        </div>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+    </section>
 )
 
 export default MyFooter;
