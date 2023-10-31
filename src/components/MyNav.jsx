@@ -1,13 +1,13 @@
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Container, Nav, Navbar, Form, Button } from 'react-bootstrap'
 import logo from '../logo.svg'
 
-const MyNav = () => (
-    <Navbar 
-        expand="lg" 
-        bg="light"
+const MyNav = ({ searchQuery, setSearchQuery, theme, setTheme }) => (
+    <Navbar
+        expand="lg"
+        className="bg-body-tertiary"
     >
-        <Container fluid>
-            <Navbar.Brand href="#">
+        <Container>
+            <Navbar.Brand href="#home">
                 <img
                     src={logo}
                     width="56"
@@ -18,14 +18,31 @@ const MyNav = () => (
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                    <Nav.Link href="#">Home</Nav.Link>
-                    <Nav.Link href="#">About</Nav.Link>
-                    <Nav.Link href="#">Browse</Nav.Link>
+                <Nav className="me-auto">
+                    <Nav.Link href="#Home">Home</Nav.Link>
+                    <Nav.Link href="#About">About</Nav.Link>
+                    <Nav.Link href="#Browse">Browse</Nav.Link>
                 </Nav>
+                <Form className='py-4 py-md-0'>
+                    <Form.Control
+                        type="search"
+                        placeholder="Cerca un Libro..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className='rounded-pill'
+                        style={{ paddingLeft: "16px" }}
+                    />
+                </Form>
             </Navbar.Collapse>
+            <Button
+                className='ms-3 rounded-pill px-3'
+                onClick={() => { setTheme(theme === 'light' ? 'dark' : 'light') }}
+            >
+                {theme}
+            </Button>
         </Container>
     </Navbar>
+
 )
 
 export default MyNav

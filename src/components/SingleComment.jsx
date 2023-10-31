@@ -1,6 +1,5 @@
 import { Form, Row, Col, Card } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
-import { useState, useEffect } from 'react'
 
 const SingleComment = ({ Comments }) => {
 
@@ -13,9 +12,9 @@ const SingleComment = ({ Comments }) => {
                             md={12}
                             key={review._id}
                         >
-                            <Card.Title style={{ fontSize: "1rem" }} >
+                            <Card.Title className='fs-6' >
                                 <CardTitleWithStars rate={review.rate} author={review.author} />
-                                <p className='font-weight-normal'>{review.comment}</p>
+                                <p className='fw-normal'>{review.comment}</p>
                             </Card.Title>
                         </Col>
                     ))}
@@ -29,7 +28,7 @@ const CardTitleWithStars = ({ rate, author }) => {
     const starIcons = [];
 
     for (let i = 0; i < rate; i++) {
-        starIcons.push(<Icon.StarFill key={i} className="mr-2" style={{color: "#e37400", fontSize: "1rem"}} />);
+        starIcons.push(<Icon.StarFill key={i} className="me-2 fs-6" style={{color: "#e37400"}} />);
     }
 
     return (

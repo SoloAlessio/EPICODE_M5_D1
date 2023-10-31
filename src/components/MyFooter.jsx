@@ -1,5 +1,5 @@
 import * as Icon from 'react-bootstrap-icons'
-import { Row, Col, Container } from 'react-bootstrap'
+import { Row, Col, Container, Button } from 'react-bootstrap'
 
 const MyFooter = () => (
     <section className="bg-light text-dark">
@@ -15,21 +15,21 @@ const MyFooter = () => (
                         </div>
                     </div>
                     <div className="lc-block py-2">
-                        <a className="text-decoration-none mr-3" href="#">
+                        <Button className="text-decoration-none mr-3" variant="link">
                             <Icon.Facebook width={"1rem"} height={"1rem"} fill='#343a40'/>
-                        </a>
-                        <a className="text-decoration-none mr-3" href="#">
+                        </Button>
+                        <Button className="text-decoration-none mr-3" variant="link">
                             <Icon.Instagram width={"1rem"} height={"1rem"} fill='#343a40'/>
-                        </a>
-                        <a className="text-decoration-none mr-3" href="#">
+                        </Button>
+                        <Button className="text-decoration-none mr-3" variant="link">
                             <Icon.Twitter width={"1rem"} height={"1rem"} fill='#343a40'/> 
-                        </a>
-                        <a className="text-decoration-none mr-3" href="#">
+                        </Button>
+                        <Button className="text-decoration-none mr-3" variant="link">
                             <Icon.Youtube width={"1rem"} height={"1rem"} fill='#343a40'/>
-                        </a>
-                        <a className="text-decoration-none mr-3" href="#">
+                        </Button>
+                        <Button className="text-decoration-none mr-3" variant="link">
                             <Icon.Linkedin width={"1rem"} height={"1rem"} fill='#343a40'/>
-                        </a>
+                        </Button>
                     </div>
 
                 </Col>
@@ -95,8 +95,8 @@ const MyFooter = () => (
                     <div className="lc-block">
                         <div editable="rich">
                             <p>
-                                <a className="text-decoration-none mr-2" href="#">License Details</a> -
-                                <a className="text-decoration-none ml-2" href="#">Terms &amp; Conditions</a>
+                                <Button className="text-decoration-none mr-2" variant="link">License Details</Button> -
+                                <Button className="text-decoration-none ml-2" variant="link">Terms &amp; Conditions</Button>
                             </p>
                         </div>
                     </div>

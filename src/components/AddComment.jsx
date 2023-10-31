@@ -54,7 +54,7 @@ const AddComment = ({ asin }) => {
                 <Container fluid className='mb-3 px-0'>
                     <Row>
                         <Col md={4} className='d-flex align-items-center mb-3 mb-md-0'>
-                            <Icon.StarFill className='mr-2' style={{color: "#e37400", fontSize: "1rem"}}/>
+                            <Icon.StarFill className='me-2' style={{color: "#e37400", fontSize: "1rem"}}/>
                             <p className='mb-0 font-weight-bold'>{comment.rate}</p>
                         </Col>
                         <Col md={8} className='d-flex align-items-center'>

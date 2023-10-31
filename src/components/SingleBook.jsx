@@ -16,7 +16,7 @@ const SingleBook = ({ book }) => {
     };
 
     return (
-        <Card className="border-0" style={{height: "100%"}}>
+        <Card className="border-0 h-100">
             <Card
                 onClick={handleCardClick}
                 style={{ border: selected ? '2px solid #bb212450' : '2px solid #f6f6f7' }}

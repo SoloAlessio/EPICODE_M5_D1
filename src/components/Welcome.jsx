@@ -2,8 +2,8 @@ import { Button, Container, Row, Col } from 'react-bootstrap'
 import ReactLogo from '../logo.svg'
 import GithubLogo from '../githubLogo.svg'
 
-const Welcome = () => (
-    <Container className="py-5">
+const Welcome = ({theme}) => (
+    <Container className="py-5 mt-5">
         <Row className="mb-4 align-items-center flex-lg-row-reverse">
             <Col
                 md={6}
@@ -38,7 +38,7 @@ const Welcome = () => (
                 <div className="lc-block">
                     <Button
                         href='https://www.react.dev'
-                        className='mr-3 px-3 border-0 d-inline-flex align-items-center'
+                        className='me-3 px-3 border-0 d-inline-flex align-items-center'
                         style={{ backgroundColor: '#f8f9fa', borderRadius: "12px", height: "60px" }}
                     >
                         <img
@@ -51,7 +51,7 @@ const Welcome = () => (
 
                     <Button
                         href='https://github.com/SoloAlessio/EPICODE_M5_D2'
-                        className='mr-3 px-3 border-0 d-inline-flex align-items-center'
+                        className='me-3 px-3 border-0 d-inline-flex align-items-center'
                         style={{ backgroundColor: '#f8f9fa', borderRadius: "12px", height: "60px" }}
                     >
                         <img
