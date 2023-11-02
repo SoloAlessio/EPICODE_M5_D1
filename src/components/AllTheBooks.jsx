@@ -1,11 +1,12 @@
 import { Col, Row } from "react-bootstrap";
 import fantasy from '../Books/scifi.json'
 import SingleBook from "./SingleBook";
+import ThemeContext from '../context/SearchContext.jsx';
 
-const MyFunction = ({searchQuery}) => {
+const MyFunction = ({searchQuery, theme}) => {
 
     return (
-        <>
+        <ThemeContext.Provider value={theme}>
             <h1>Books</h1>
             <Row className="g-4 my-5">
                 {fantasy
@@ -24,7 +25,7 @@ const MyFunction = ({searchQuery}) => {
                         </Col>
                     ))}
             </Row>
-        </>
+        </ThemeContext.Provider>
     )
 }
 

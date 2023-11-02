@@ -1,10 +1,13 @@
 import { Container, Nav, Navbar, Form, Button } from 'react-bootstrap'
 import logo from '../logo.svg'
+import * as Icons from 'react-bootstrap-icons'
 
 const MyNav = ({ searchQuery, setSearchQuery, theme, setTheme }) => (
     <Navbar
         expand="lg"
-        className="bg-body-tertiary"
+        variant={theme}
+        sticky='top'
+        bg={theme}
     >
         <Container>
             <Navbar.Brand href="#home">
@@ -35,10 +38,15 @@ const MyNav = ({ searchQuery, setSearchQuery, theme, setTheme }) => (
                 </Form>
             </Navbar.Collapse>
             <Button
-                className='ms-3 rounded-pill px-3'
+                className='ms-3 rounded-circle d-flex align-items-center'
+                style={{aspectRatio: '1'}}
                 onClick={() => { setTheme(theme === 'light' ? 'dark' : 'light') }}
             >
-                {theme}
+                {theme === 'light' ? (
+                    <Icons.MoonFill />
+                ) : (
+                    <Icons.SunFill />
+                )}
             </Button>
         </Container>
     </Navbar>

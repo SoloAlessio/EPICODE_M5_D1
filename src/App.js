@@ -12,7 +12,10 @@ function App() {
   const [theme, setTheme] = useState('light')
 
   return (
-    <div className="App">
+    <div 
+      className="App" 
+      style={{backgroundColor: theme === 'light' ? '#fff' : '#121212'}}
+    >
       <MyNav 
         searchQuery={searchQuery} 
         setSearchQuery={setSearchQuery} 
@@ -21,9 +24,9 @@ function App() {
       />
       <Container>
         <Welcome theme={theme}/>
-        <AllTheBooks searchQuery={searchQuery}/>
+        <AllTheBooks searchQuery={searchQuery} theme={theme}/>
       </Container>
-      <MyFooter />
+      <MyFooter theme={theme}/>
 
     </div>
   );

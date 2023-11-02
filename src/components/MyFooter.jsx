@@ -1,8 +1,8 @@
 import * as Icon from 'react-bootstrap-icons'
 import { Row, Col, Container, Button } from 'react-bootstrap'
 
-const MyFooter = () => (
-    <section className="bg-light text-dark">
+const MyFooter = ({theme}) => (
+    <section style={{color: theme === 'light' ? '#212529' : '#fff'}}>
         <Container className="py-5">
             <Row>
                 <Col lg={3} className='mb-4 mb-md-0'>

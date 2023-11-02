@@ -1,9 +1,14 @@
 import { Button, Container, Row, Col } from 'react-bootstrap'
 import ReactLogo from '../logo.svg'
 import GithubLogo from '../githubLogo.svg'
+import GithubLogoWhite from '../githubLogoWhite.png'
+import hero from '../hero.png'
 
 const Welcome = ({theme}) => (
-    <Container className="py-5 mt-5">
+    <Container 
+        className="py-5 mt-5"
+        style={{color: theme === 'light' ? '#252525' : '#fff'}}
+    >
         <Row className="mb-4 align-items-center flex-lg-row-reverse">
             <Col
                 md={6}
@@ -14,7 +19,7 @@ const Welcome = ({theme}) => (
                     <img
                         className="img-fluid"
                         alt='react illustration'
-                        src="https://www.rlogical.com/wp-content/uploads/2020/07/react-js-developer.png"
+                        src={hero}
                     />
                 </div>
             </Col>
@@ -39,7 +44,11 @@ const Welcome = ({theme}) => (
                     <Button
                         href='https://www.react.dev'
                         className='me-3 px-3 border-0 d-inline-flex align-items-center'
-                        style={{ backgroundColor: '#f8f9fa', borderRadius: "12px", height: "60px" }}
+                        style={{
+                            backgroundColor: theme === 'light' ? '#f8f9fa' : '#212529',
+                            borderRadius: '12px',
+                            height: '60px'
+                          }}
                     >
                         <img
                             src={ReactLogo}
@@ -52,10 +61,14 @@ const Welcome = ({theme}) => (
                     <Button
                         href='https://github.com/SoloAlessio/EPICODE_M5_D2'
                         className='me-3 px-3 border-0 d-inline-flex align-items-center'
-                        style={{ backgroundColor: '#f8f9fa', borderRadius: "12px", height: "60px" }}
+                        style={{
+                            backgroundColor: theme === 'light' ? '#f8f9fa' : '#212529',
+                            borderRadius: '12px',
+                            height: '60px'
+                          }}
                     >
                         <img
-                            src={GithubLogo}
+                            src={theme === 'light' ? GithubLogo : GithubLogoWhite}
                             alt="github logo"
                             width={"32px"}
                             height={"32px"}
