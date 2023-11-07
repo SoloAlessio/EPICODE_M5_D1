@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CommentList from './CommentList'
 import AddComment from './AddComment'
-import { Card } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import { useContext } from "react";
 import ThemeContext from "../context/SearchContext";
 
@@ -31,24 +31,26 @@ const Fetch = ({ asin }) => {
             }
         }
 
-        if(asin){
+        if (asin) {
             getComments()
         }
 
     }, [asin])
 
     return (
-        <Card 
-            className="Reviews p-3 mt-3" 
-            bg={theme} 
-            style={{color: theme === 'light' ? '#252525' : '#fff'}}
-        >
-            <h5 className="mb-0">Recensioni: {comments.length}</h5>
-            <hr />
-            <CommentList List={comments} />
-            <hr />
-            <AddComment asin={asin} />
-        </Card>
+        <Container fluid style={{position: 'sticky', top: '7rem'}}>
+            <Card
+                className="p-4 mt-3 border-0"
+                bg={theme}
+                style={{ color: theme === 'light' ? '#252525' : '#fff' }}
+            >
+                <h5 className="mb-0">Recensioni: {comments.length}</h5>
+                <hr />
+                <CommentList List={comments} />
+                <hr />
+                <AddComment asin={asin} />
+            </Card>
+        </Container>
     )
 }
 

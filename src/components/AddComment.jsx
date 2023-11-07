@@ -2,7 +2,7 @@ import { Button, Form, Row, Col, Container } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import { useState, useEffect } from 'react';
 
-const AddComment = ({ asin }) => {
+const AddComment = ({ selected }) => {
 
     const [comment, setComment] = useState({
         comment: "",
@@ -13,9 +13,9 @@ const AddComment = ({ asin }) => {
     useEffect(() => {
         setComment((c) => ({
             ...c,
-            elementId: asin,
+            elementId: selected,
         }))
-    }, [asin])
+    }, [selected])
 
     const Submit = async (e) => {
         e.preventDefault()

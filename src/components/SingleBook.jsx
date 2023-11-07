@@ -1,28 +1,16 @@
-import { useState } from "react";
 import { Card } from 'react-bootstrap'
-import CommentArea from './CommentArea'
 import { useContext } from 'react';
 import context from "../context/SearchContext";
 
-const SingleBook = ({ book }) => {
-    const [selected, setSelected] = useState(false)
+const SingleBook = ({ book, selected, setSelected }) => {
+    
     const theme = useContext(context)
-
-    const handleCardClick = (e) => {
-        if (selected) {
-            if (!e.target.closest('.Reviews')) {
-                setSelected(!selected);
-            }
-        } else {
-            setSelected(!selected)
-        }
-    };
 
     return (
         <Card className="border-0 h-100" style={{backgroundColor: theme === "light" ? '#fff' : '#121212'}}>
             <Card
-                onClick={handleCardClick}
-                style={{ border: selected ? '2px solid #bb212450' : theme === 'light' ? '2px solid #f6f6f7' : '2px solid #252525' }}
+                onClick={() => setSelected(book.asin)}
+                style={{ border: selected === book.asin ? '2px solid #bb212450' : theme === 'light' ? '2px solid #f6f6f7' : '2px solid #252525' }}
                 bg={theme}
                 className="p-3"
                 id="Book"
@@ -44,7 +32,6 @@ const SingleBook = ({ book }) => {
                     </Card.Text>
                 </Card.Body>
             </Card>
-            {selected && <CommentArea asin={book.asin} />}
         </Card>
     )
 }
