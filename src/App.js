@@ -37,7 +37,7 @@ function App() {
             <Route path='/' element={<AllTheBooks searchQuery={searchQuery} theme={theme} selected={selected} setSelected={setSelected} />}/>
 
             {/* Path: "BookDetail" */}
-            <Route path='/bookDetail/:genre/:id' element={<BookDetails />}></Route>
+            <Route path='/bookDetail/:genre/:id' element={<BookDetails theme={theme}/>}></Route>
 
             {/* Path: "404" */}
             <Route path='*' element={<NotFound />} />

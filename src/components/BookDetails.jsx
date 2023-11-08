@@ -8,7 +8,7 @@ import history from '../Books/history.json'
 import horror from '../Books/horror.json'
 import romance from '../Books/romance.json'
 
-export default function BookDetails() {
+export default function BookDetails({ theme }) {
 
     const { id, genre } = useParams()
 
@@ -33,7 +33,7 @@ export default function BookDetails() {
                                         <Col md={4}>
                                             <img src={b.img} alt={b.title} className="img-fluid rounded shadow" />
                                         </Col>
-                                        <Col md={8}>
+                                        <Col md={8} style={{color: theme === 'light' ? '#212529' : '#fff'}}>
                                             <h5>{b.title}</h5>
                                             <hr />
                                             <p>$ {b.price}</p>

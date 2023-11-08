@@ -32,6 +32,7 @@ const MyFunction = ({ searchQuery, theme, selected, setSelected }) => {
                 className="my-3"
                 justify
                 onSelect={(genre) => setSelectedGenre(genre)}
+                style={{ color: theme === 'light' ? '#212529' : '#fff' }}
             >
                 {Object.keys(BooksByGenre).map((genre) => (
                     <Tab eventKey={genre} title={genre}/>
