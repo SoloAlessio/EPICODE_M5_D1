@@ -1,13 +1,15 @@
-import { Card } from 'react-bootstrap'
+import { Card, Button, Row, Col, Container } from 'react-bootstrap'
 import { useContext } from 'react';
+import { Link } from 'react-router-dom'
 import context from "../context/SearchContext";
+import * as Icon from 'react-bootstrap-icons'
 
 const SingleBook = ({ book, selected, setSelected }) => {
-    
+
     const theme = useContext(context)
 
     return (
-        <Card className="border-0 h-100" style={{backgroundColor: theme === "light" ? '#fff' : '#121212'}}>
+        <Card className="border-0 h-100" style={{ backgroundColor: theme === "light" ? '#fff' : '#121212' }}>
             <Card
                 onClick={() => setSelected(book.asin)}
                 style={{ border: selected === book.asin ? '2px solid #bb212450' : theme === 'light' ? '2px solid #f6f6f7' : '2px solid #252525' }}
@@ -27,9 +29,21 @@ const SingleBook = ({ book, selected, setSelected }) => {
                     >
                         {book.title}
                     </Card.Title>
-                    <Card.Text style={{color: theme === 'light' ? '#252525' : '#fff'}}>
+                    <Card.Text style={{ color: theme === 'light' ? '#252525' : '#fff' }}>
                         $ {book.price}
                     </Card.Text>
+                    <Container fluid>
+                        <Row>
+                            <Col md={2} className='px-0'>
+                                <Button variant='primary w-100'><Icon.CartCheckFill /></Button>
+                            </Col>
+                            <Col md={10} className='pe-0'>
+                                <Link to={`bookDetail/${book.category}/${book.asin}`} className='text-decoration-none'>
+                                    <Button variant='outline-primary w-100'>Detail</Button>
+                                </Link>
+                            </Col>
+                        </Row>
+                    </Container>
                 </Card.Body>
             </Card>
         </Card>

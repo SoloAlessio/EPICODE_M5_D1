@@ -35,20 +35,20 @@ const Fetch = ({ asin }) => {
             getComments()
         }
 
-    }, [asin])
+    }, [asin, comments.length])
 
     return (
-        <Container fluid style={{position: 'sticky', top: '7rem'}}>
+        <Container fluid>
             <Card
-                className="p-4 mt-3 border-0"
+                className="p-4 border-0"
                 bg={theme}
                 style={{ color: theme === 'light' ? '#252525' : '#fff' }}
             >
                 <h5 className="mb-0">Recensioni: {comments.length}</h5>
                 <hr />
-                <CommentList List={comments} />
+                <CommentList List={comments} setComments={setComments} />
                 <hr />
-                <AddComment asin={asin} />
+                <AddComment asin={asin} setComments={setComments}/>
             </Card>
         </Container>
     )

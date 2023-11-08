@@ -1,10 +1,10 @@
 import { React } from 'react';
 import SingleComment from './SingleComment'
 
-const CommentList = ({List}) => {
+const CommentList = ({List, setComments}) => {
 
     return(
-        <SingleComment Comments={List}/>
+        <SingleComment Comments={List} setComments={setComments}/>
     )
 }
 

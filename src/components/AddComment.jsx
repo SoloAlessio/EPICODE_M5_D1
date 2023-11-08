@@ -1,8 +1,9 @@
 import { Button, Form, Row, Col, Container } from 'react-bootstrap'
 import * as Icon from 'react-bootstrap-icons'
 import { useState, useEffect } from 'react';
+import {toast} from 'react-toastify'
 
-const AddComment = ({ selected }) => {
+const AddComment = ({ asin, setComments }) => {
 
     const [comment, setComment] = useState({
         comment: "",
@@ -13,9 +14,9 @@ const AddComment = ({ selected }) => {
     useEffect(() => {
         setComment((c) => ({
             ...c,
-            elementId: selected,
+            elementId: asin,
         }))
-    }, [selected])
+    }, [asin])
 
     const Submit = async (e) => {
         e.preventDefault()
@@ -32,20 +33,33 @@ const AddComment = ({ selected }) => {
                     body: JSON.stringify(comment)
                 })
             if (response.ok) {
-                alert("INVIATA")
+                toast.success("Recensione aggiunta con successo")
+                getComments(asin)
                 setComment({
                     comment: "",
                     rate: 1,
-                    elementId: null,
+                    elementId: asin,
                 })
             } else {
-                alert("ERRORE")
+                toast.error("Oops, qualcosa è andato storto")
             }
         } catch (error) {
             alert(error)
         }
+    }
 
-
+    async function getComments(id) {
+        let response = await fetch(`https://striveschool-api.herokuapp.com/api/books/${id}/comments/`, {
+            headers: {
+                Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNkMjAyOTYzZjE1ODAwMTQxMTg0NzUiLCJpYXQiOjE2OTg1MDQ3NDUsImV4cCI6MTY5OTcxNDM0NX0.RP0iwx7dtrOLNI8LQJ6uqC0M0UKPr_063xel1qtoaIg"
+            }
+        })
+        if (response.ok) {
+            let comments = await response.json()
+            setComments(comments)
+        } else {
+            console.log("error");
+        }
     }
 
     return (
