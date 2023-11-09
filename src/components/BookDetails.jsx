@@ -1,5 +1,5 @@
 import { React } from "react";
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap';
 import { useParams } from "react-router-dom";
 import CommentArea from '../components/CommentArea.jsx';
 import fantasy from '../Books/fantasy.json'

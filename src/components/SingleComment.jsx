@@ -41,52 +41,43 @@ const SingleComment = ({ Comments, setComments }) => {
         }
     }
 
+    const CardTitleWithStars = ({ rate, author }) => {
+        const starIcons = [];
+
+        for (let i = 0; i < rate; i++) {
+            starIcons.push(<Icon.StarFill key={i} className="me-2 fs-6" style={{ color: "#e37400" }} />);
+        }
+
+        return (
+            <div className='mb-2'>
+                <p className='mb-2' style={{ fontSize: ".85rem" }}>{author}</p>
+                <div>
+                    {starIcons}
+                </div>
+            </div>
+        );
+    };
+
     return (
         <Form.Group className='mb-0'>
-            <Row>
-                {Comments
-                    .map(review => (
-                        <>
-                            <Col
-                                xs={9}
-                                key={review._id}
-                            >
-                                <Card.Title className='fs-6' >
-                                    <CardTitleWithStars rate={review.rate} author={review.author} />
-                                    <p className='fw-normal'>{review.comment}</p>
-                                </Card.Title>
-                            </Col>
-                            <Col
-                                xs={3}
-                                key={"deleteButton"}
-                            >
-                                <Button variant='outline-danger w-100' onClick={() => handleDelete(review._id)}>
-                                    <Icon.TrashFill style={{ fontSize: "14px" }} />
-                                </Button>
-                            </Col>
-                        </>
-                    ))}
-
-            </Row>
+            {Comments
+                .map(review => (
+                    <Row key={review.id}>
+                        <Col xs={9}>
+                            <Card.Title className='fs-6' >
+                                <CardTitleWithStars rate={review.rate} author={review.author} />
+                                <p className='fw-normal fs-6'>{review.comment}</p>
+                            </Card.Title>
+                        </Col>
+                        <Col xs={3}>
+                            <Button variant='outline-danger w-100' onClick={() => handleDelete(review._id)}>
+                                <Icon.TrashFill style={{ fontSize: "14px" }} />
+                            </Button>
+                        </Col>
+                    </Row>
+                ))}
         </Form.Group>
     )
 }
-
-const CardTitleWithStars = ({ rate, author }) => {
-    const starIcons = [];
-
-    for (let i = 0; i < rate; i++) {
-        starIcons.push(<Icon.StarFill key={i} className="me-2 fs-6" style={{ color: "#e37400" }} />);
-    }
-
-    return (
-        <div className='mb-2'>
-            <p className='mb-2' style={{ fontSize: ".85rem" }}>{author}</p>
-            <div>
-                {starIcons}
-            </div>
-        </div>
-    );
-};
 
 export default SingleComment

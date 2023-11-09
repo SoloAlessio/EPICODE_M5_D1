@@ -8,7 +8,7 @@ import history from '../Books/history.json'
 import horror from '../Books/horror.json'
 import romance from '../Books/romance.json'
 
-const MyFunction = ({ searchQuery, theme, selected, setSelected }) => {
+const AllTheBooks = ({ searchQuery, theme, selected, setSelected }) => {
 
     const [selectedGenre, setSelectedGenre] = useState("fantasy");
 
@@ -43,7 +43,7 @@ const MyFunction = ({ searchQuery, theme, selected, setSelected }) => {
                     <Row className="g-4 mb-5 mt-3">
                         {books
                             .filter((b) => b.title.toLowerCase()
-                                .includes(searchQuery))
+                            .includes(searchQuery))
                             .map((books) => (
                                 <Col
                                     xs={12}
@@ -66,4 +66,4 @@ const MyFunction = ({ searchQuery, theme, selected, setSelected }) => {
     )
 }
 
-export default MyFunction
+export default AllTheBooks
