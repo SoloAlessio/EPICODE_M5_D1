@@ -1,57 +1,64 @@
 import { useEffect, useState } from "react";
-import CommentList from './CommentList'
-import AddComment from './AddComment'
+import CommentList from "./CommentList";
+import AddComment from "./AddComment";
 import { Card, Container } from "react-bootstrap";
 import { useContext } from "react";
-import ThemeContext from "../context/SearchContext";
+import { ThemeContext } from "../context/SearchContext";
+import { Berear } from "../Berear";
 
 const Fetch = ({ asin }) => {
+  const theme = useContext(ThemeContext);
+  const [comments, setComments] = useState([]);
 
-    const theme = useContext(ThemeContext)
-    const [comments, setComments] = useState([])
+  useEffect(() => {
+    const getComments = async () => {
+      try {
+        let response = await fetch(
+          `https://striveschool-api.herokuapp.com/api/books/${asin}/comments/`,
+          {
+            headers: {
+              Authorization: Berear,
+            },
+          }
+        );
 
-    useEffect(() => {
-        const getComments = async () => {
-            try {
-                let response = await fetch(`https://striveschool-api.herokuapp.com/api/books/${asin}/comments/`, {
-                    headers: {
-                        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNkMjAyOTYzZjE1ODAwMTQxMTg0NzUiLCJpYXQiOjE2OTg1MDQ3NDUsImV4cCI6MTY5OTcxNDM0NX0.RP0iwx7dtrOLNI8LQJ6uqC0M0UKPr_063xel1qtoaIg"
-                    }
-                })
-
-                if (response.ok) {
-                    let comments = await response.json()
-                    setComments(comments)
-                } else {
-                    console.log("error");
-                }
-
-            } catch (error) {
-                console.log(error);
-            }
+        if (response.ok) {
+          let comments = await response.json();
+          setComments(comments);
+        } else {
+          console.log("error");
         }
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-        if (asin) {
-            getComments()
-        }
+    if (asin) {
+      getComments();
+    }
+  }, [asin]);
 
-    }, [asin, comments.length])
+  return (
+    <Container fluid>
+      <Card
+        className="p-4 border-0"
+        data-bs-theme={theme}
+        style={{
+          background: theme === "light" ? "#f8f9fa" : "#212529",
+        }}
+      >
+        <h5 className="mb-0">Recensioni: {comments.length}</h5>
+        <hr />
+        {comments.length <= 0 ? (
+          "Nessuna Recensione"
+        ) : (
+          <CommentList List={comments} setComments={setComments} />
+        )}
+        <hr />
+        <AddComment asin={asin} setComments={setComments} />
+      </Card>
+    </Container>
+  );
+};
 
-    return (
-        <Container fluid>
-            <Card
-                className="p-4 border-0"
-                bg={theme}
-                style={{ color: theme === 'light' ? '#252525' : '#fff' }}
-            >
-                <h5 className="mb-0">Recensioni: {comments.length}</h5>
-                <hr />
-                <CommentList List={comments} setComments={setComments} />
-                <hr />
-                <AddComment asin={asin} setComments={setComments}/>
-            </Card>
-        </Container>
-    )
-}
-
-export default Fetch
+export default Fetch;

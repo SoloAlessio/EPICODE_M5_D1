@@ -1,70 +1,69 @@
 import { Card, Button, Row, Col, Container } from "react-bootstrap";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import context from "../context/SearchContext";
+import { ThemeContext } from "../context/SearchContext";
 import * as Icon from "react-bootstrap-icons";
 
 const SingleBook = ({ book, selected, setSelected }) => {
-  const theme = useContext(context);
+  const theme = useContext(ThemeContext);
 
   return (
     <Card
-      className="border-0 h-100"
-      style={{ backgroundColor: theme === "light" ? "#fff" : "#121212" }}
+      onClick={() => setSelected(book.asin)}
+      style={{
+        backgroundColor: theme === "light" ? "#FBFCFE" : "#121212",
+        border:
+          selected === book.asin
+            ? "1px solid #22bb33"
+            : theme === "light"
+            ? "1px solid #fff"
+            : "1px solid #212529",
+      }}
+      bg={theme}
+      className="p-3 Book"
+      data-testid="Card"
     >
-      <Card
-        onClick={() => setSelected(book.asin)}
-        style={{
-          border:
-            selected === book.asin
-              ? "2px solid #bb212450"
-              : theme === "light"
-              ? "2px solid #f6f6f7"
-              : "2px solid #252525",
-        }}
-        bg={theme}
-        className="p-3"
-        id="Book"
-      >
-        <Card.Img
-          src={book.img}
-          style={{ height: "70%", objectFit: "cover", borderRadius: "8px" }}
-          className="shadow"
-        />
-        <Card.Body className="px-0 d-flex flex-column justify-content-between">
-          <Card.Title
-            className="TextCut"
-            style={{
-              color: theme === "light" ? "#252525" : "#fff",
-              fontSize: "1rem",
-            }}
-          >
-            {book.title}
-          </Card.Title>
-          <Card.Text style={{ color: theme === "light" ? "#252525" : "#fff" }}>
-            $ {book.price}
-          </Card.Text>
-          <Container fluid>
-            <Row>
-              <Col xs={6} md={4}>
-                <Button variant="primary w-100 px-0">
-                  <Icon.CartCheckFill />
-                </Button>
-              </Col>
-              <Col xs={6} md={4}>
-                <Link
-                  to={`bookDetail/${book.category}/${book.asin}`}
-                  className="text-decoration-none"
+      <Card.Img
+        src={book.img}
+        style={{ height: "60%", objectFit: "cover" }}
+        variant="top"
+      />
+
+      <Card.Body className="px-0 py-2 d-flex">
+        <Container fluid className="align-self-end">
+          <Row>
+            <Col md={12} className="px-0">
+              <Card.Title
+                className="TextCut mb-4 fs-7"
+                style={{
+                  color: theme === "light" ? "#252525" : "#fff",
+                }}
+              >
+                {book.title}
+              </Card.Title>
+            </Col>
+            <Col xs={8} className="px-0">
+              <div style={{ color: theme === "light" ? "#252525" : "#fff" }}>
+                <p className="fs-8 mb-0">Total Price: </p>
+                <p className="mb-0 fw-semibold">$ {book.price}</p>
+              </div>
+            </Col>
+            <Col xs={4} className="px-0">
+              <Link
+                to={`bookDetail/${book.category}/${book.asin}`}
+                className="text-decoration-none"
+              >
+                <Button
+                  variant={theme === "light" ? "outline-dark" : "outline-light"}
+                  className="w-100 h-100 px-0"
                 >
-                  <Button variant="outline-primary w-100 px-0">
-                    <Icon.JustifyLeft />
-                  </Button>
-                </Link>
-              </Col>
-            </Row>
-          </Container>
-        </Card.Body>
-      </Card>
+                  <Icon.JustifyRight />
+                </Button>
+              </Link>
+            </Col>
+          </Row>
+        </Container>
+      </Card.Body>
     </Card>
   );
 };

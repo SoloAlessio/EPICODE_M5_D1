@@ -79,8 +79,7 @@ const AddComment = ({ asin, setComments }) => {
               <p className="mb-0 font-weight-bold">{comment.rate}</p>
             </Col>
             <Col md={8} className="d-flex align-items-center">
-              <Form.Control
-                type="range"
+              <Form.Range
                 id="Slider"
                 max={5}
                 value={comment.rate}
@@ -96,6 +95,7 @@ const AddComment = ({ asin, setComments }) => {
         </Container>
         <Form.Control
           type="text"
+          placeholder="Inserisci il tuo commento"
           value={comment.comment}
           onChange={(e) =>
             setComment({
@@ -103,7 +103,6 @@ const AddComment = ({ asin, setComments }) => {
               comment: e.target.value,
             })
           }
-          placeholder="Inserisci il tuo commento"
           className="mb-3"
         />
         <Button type="submit" variant="primary" className="w-100">

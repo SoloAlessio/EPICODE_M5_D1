@@ -1,0 +1,33 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import './Styles/variables';
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+ul li {
+  list-style: none;
+}
+
+.TextCut {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  height: 2.5em;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+input[type="search"]::placeholder {
+  font-size: .85rem;
+}
+
+.Book {
+  transition: border .3s ease;
+  cursor: pointer;
+  height: 100%;
+}
