@@ -63,7 +63,7 @@ input[type="range"]::-webkit-slider-thumb {
 #Book {
   transition: border .3s ease;
   cursor: pointer;
-  height: 60vh;
+  height: 100%;
 }
 
 .App-logo {
