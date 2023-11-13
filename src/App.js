@@ -17,39 +17,24 @@ function App() {
   const [selected, setSelected] = useState("");
 
   return (
-    <div style={{background: theme === 'light' ? "#fff" : "#191414"}}>
+    <div style={{ background: theme === "light" ? "#fff" : "#191414" }}>
       <ThemeContext.Provider value={theme}>
+
         <BrowserRouter>
-          {/* NavBar */}
-          <MyNav
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            setTheme={setTheme}
-          />
+
+          <MyNav searchQuery={searchQuery} setSearchQuery={setSearchQuery} setTheme={setTheme} />
 
           <Routes>
-            {/* Path: "/"  */}
-            <Route path="/" element={ <AllTheBooks
-                  searchQuery={searchQuery}
-                  selected={selected}
-                  setSelected={setSelected}
-                />
-              }
-            />
-
-            {/* Path: "BookDetail" */}
-            <Route
-              path="/bookDetail/:genre/:asin"
-              element={<BookDetails />}
-            ></Route>
-
-            {/* Path: "404" */}
+            <Route path="/" element={<AllTheBooks searchQuery={searchQuery} selected={selected} setSelected={setSelected} />}/>
+            <Route path="/bookDetail/:genre/:asin" element={<BookDetails />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
 
-        <MyFooter />
+          <MyFooter />
+          
+        </BrowserRouter>
         <ToastContainer position="bottom-right" />
+
       </ThemeContext.Provider>
     </div>
   );

@@ -30,4 +30,22 @@ input[type="search"]::placeholder {
   transition: border .3s ease;
   cursor: pointer;
   height: 100%;
-}
+
+  .details{
+    position: absolute;
+    bottom: -12px;
+    right: calc(50% - 18px);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .3s ease;
+  }
+
+  .details:hover{
+    transform: scale(1.1);
+  }
+} 

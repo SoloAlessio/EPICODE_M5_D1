@@ -24,12 +24,12 @@ export default function BookDetails() {
   return (
     <Container className="my-5">
       <Row className="g-4">
-        <Col md={8}>
+        <Col md={6} xl={8}>
           {BooksByGenre[genre]
-            .filter((b) => b.asin === asin)
+            .find((b) => b.asin === asin)
             .map((b) => (
               <Row className="g-4" key={b.asin}>
-                <Col md={4}>
+                <Col xl={4}>
                   <img
                     src={b.img}
                     alt={b.title}
@@ -37,7 +37,7 @@ export default function BookDetails() {
                   />
                 </Col>
                 <Col
-                  md={8}
+                  xl={8}
                   style={{ color: theme === "light" ? "#212529" : "#fff" }}
                 >
                   <h5>{b.title}</h5>
@@ -47,7 +47,7 @@ export default function BookDetails() {
               </Row>
             ))}
         </Col>
-        <Col md={4}>
+        <Col md={6} xl={4}>
           <CommentArea asin={asin} />
         </Col>
       </Row>

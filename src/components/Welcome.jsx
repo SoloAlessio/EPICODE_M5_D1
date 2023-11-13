@@ -2,7 +2,7 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 import ReactLogo from "../logo.svg";
 import GithubLogo from "../githubLogo.svg";
 import GithubLogoWhite from "../githubLogoWhite.png";
-import hero from "../hero.png";
+import hero from "../hero.svg";
 import { useContext } from "react";
 import { ThemeContext } from "../context/SearchContext";
 

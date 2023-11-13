@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../context/SearchContext";
 import { Berear } from "../Berear";
 
-const Fetch = ({ asin }) => {
+const CommentArea = ({ asin }) => {
   const theme = useContext(ThemeContext);
   const [comments, setComments] = useState([]);
 
@@ -43,6 +43,7 @@ const Fetch = ({ asin }) => {
       <Card
         className="p-4 border-0"
         data-bs-theme={theme}
+        data-testid="commentArea"
         style={{
           background: theme === "light" ? "#f8f9fa" : "#212529",
         }}
@@ -61,4 +62,4 @@ const Fetch = ({ asin }) => {
   );
 };
 
-export default Fetch;
+export default CommentArea;
