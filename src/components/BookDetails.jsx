@@ -26,7 +26,7 @@ export default function BookDetails() {
       <Row className="g-4">
         <Col md={6} xl={8}>
           {BooksByGenre[genre]
-            .find((b) => b.asin === asin)
+            .filter((b) => b.asin === asin)
             .map((b) => (
               <Row className="g-4" key={b.asin}>
                 <Col xl={4}>

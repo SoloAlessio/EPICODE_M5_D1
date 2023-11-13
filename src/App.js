@@ -12,9 +12,9 @@ import AllTheBooks from "./components/AllTheBooks.jsx";
 import BookDetails from "./components/BookDetails.jsx";
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [theme, setTheme] = useState("light");
-  const [selected, setSelected] = useState("");
+  const [searchQuery, setSearchQuery] = useState("")
+  const [theme, setTheme] = useState("light")
+  const [selected, setSelected] = useState("")
 
   return (
     <div style={{ background: theme === "light" ? "#fff" : "#191414" }}>
@@ -26,7 +26,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<AllTheBooks searchQuery={searchQuery} selected={selected} setSelected={setSelected} />}/>
-            <Route path="/bookDetail/:genre/:asin" element={<BookDetails />} />
+            <Route path="/bookDetail/:genre/:asin" element={<BookDetails />}/>
             <Route path="*" element={<NotFound />} />
           </Routes>
 
